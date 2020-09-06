@@ -1,4 +1,5 @@
-**/.exercism/
+.exercism/
 /r/.Rproj.user/
 /r/.Rhistory
 /r/r.Rproj
+.vscode/

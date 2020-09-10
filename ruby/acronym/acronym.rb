@@ -8,9 +8,7 @@ To get started with TDD, see the `README.md` file in your
 
 class Acronym
     def self.abbreviate(string)
-        list = string.scan(/\b[a-zA-Z]/)
-        ac = list.join("")
-        ac.upcase
+        string.scan(/\b[a-zA-Z]/).join.upcase
     end
 end
 

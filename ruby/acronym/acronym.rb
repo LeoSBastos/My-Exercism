@@ -8,11 +8,8 @@ To get started with TDD, see the `README.md` file in your
 
 class Acronym
     def self.abbreviate(string)
-        list = string.scan(/\w+/)
-        ac = ""
-        list.each do |elem|
-            ac += elem[0]
-        end
+        list = string.scan(/\b[a-zA-Z]/)
+        ac = list.join("")
         ac.upcase
     end
 end

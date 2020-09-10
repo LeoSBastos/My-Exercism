@@ -7,8 +7,7 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class TwoFer
-    def self.two_fer(name = nil)
-        return "One for you, one for me." unless name
+    def self.two_fer(name = "you")
         "One for %s, one for me." % [name]
     end
 end

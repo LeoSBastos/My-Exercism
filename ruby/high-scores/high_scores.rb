@@ -7,23 +7,27 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class HighScores
-    def initialize(scores)
-        @scores = scores
-    end
-    def scores
-        @scores
-    end
-    def latest
-        @scores[-1]
-    end
-    def personal_best
-        @scores.max
-    end
-    def personal_top_three
-        sortedScores = @scores.sort.reverse
-        sortedScores[0..2]
-    end
-    def latest_is_personal_best?
-        @scores.max == @scores[-1]
-    end
+  def initialize(scores)
+    @scores = scores
+  end
+
+  def scores
+    @scores
+  end
+
+  def latest
+    scores.last
+  end
+
+  def personal_best
+    scores.max
+  end
+
+  def personal_top_three
+    scores.max(3)
+  end
+
+  def latest_is_personal_best?
+    latest == personal_best
+  end
 end

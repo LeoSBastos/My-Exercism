@@ -3,11 +3,13 @@
 ---
 ### [Meu Perfil](https://exercism.io/profiles/LeoSBastos)
 
- - r (practice mode)
+ - r
  - julia
  - ruby
  - go
  - lua
  - bash
  - python
- - rust (practice mode)
+ - rust
+ - dart
+ - php (practice mode)

@@ -8,8 +8,8 @@ def find_anagrams(word, candidates):
         candidateList = list(candidate.lower())
         candidateList.sort()
         matches = True
-        for i in range(len(word)):
-            if not wordList[i] == candidateList[i]:
+        for w, c in zip(wordList, candidateList):
+            if not w == c:
                 matches = False
                 continue
         if matches:

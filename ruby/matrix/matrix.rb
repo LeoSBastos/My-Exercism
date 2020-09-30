@@ -7,24 +7,12 @@ To get started with TDD, see the `README.md` file in your
 =end
 
 class Matrix
+  attr_reader :rows, :columns
+
   def initialize(matrix)
-    @matrixRows = matrix.split("\n")
-  end
-
-  def rows
-    @rows = []
-    for row in @matrixRows
-      @rows.push(row.split.map { |el| el.to_i })
+    @rows = matrix.lines.map do |row|
+      row.split.map { |el| el.to_i }
     end
-    @rows
-  end
-
-  def columns
-    @columns = []
-    rows[0].length.times { @columns.push([]) }
-    for row in rows
-      row.length.times { |i| @columns[i].push(row[i]) }
-    end
-    @columns
+    @columns = @rows.transpose
   end
 end

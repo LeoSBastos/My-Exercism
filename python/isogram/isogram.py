@@ -1,7 +1,3 @@
 def is_isogram(string):
-    for i, letter in enumerate(string):
-        for j, test in enumerate(string):
-            if letter.lower() == test.lower() and i != j:
-                if(letter != " " and letter != "-"):
-                    return False
-    return True
+    filteredString = "".join(filter(lambda x: x.isalpha(), string)).lower()
+    return len(filteredString) == len(set(filteredString))

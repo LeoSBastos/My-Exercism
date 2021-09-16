@@ -1,3 +1,8 @@
+"""
+Security of Meltdowns
+"""
+
+
 def is_criticality_balanced(temperature, neutrons_emitted):
     """Verify criticality is balanced.
 
@@ -11,7 +16,7 @@ def is_criticality_balanced(temperature, neutrons_emitted):
     - The product of temperature and neutrons emitted per second is less than 500000.
     """
 
-    pass
+    return temperature < 800 and neutrons_emitted > 500 and (temperature*neutrons_emitted) < 500000
 
 
 def reactor_efficiency(voltage, current, theoretical_max_power):
@@ -33,8 +38,8 @@ def reactor_efficiency(voltage, current, theoretical_max_power):
     (generated power/ theoretical max power)*100
     where generated power = voltage * current
     """
-
-    pass
+    efficiency = (voltage * current * 100)/theoretical_max_power
+    return "green" if efficiency >= 80 else "orange" if efficiency >= 60 else "red" if efficiency >= 30 else "black"
 
 
 def fail_safe(temperature, neutrons_produced_per_second, threshold):
@@ -49,5 +54,5 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
     - `temperature * neutrons per second` +/- 10% of `threshold` == 'NORMAL'
     - `temperature * neutron per second` is not in the above-stated ranges ==  'DANGER'
     """
-
-    pass
+    safety_range = (temperature * neutrons_produced_per_second) / threshold
+    return "LOW" if safety_range < 0.6 else "NORMAL" if 0.9 <= safety_range <= 1.1 else "DANGER"

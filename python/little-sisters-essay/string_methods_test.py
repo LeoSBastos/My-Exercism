@@ -19,7 +19,8 @@ class TestStringMethods(unittest.TestCase):
 
     @pytest.mark.task(taskno=2)
     def test_sentence_ending(self):
-        self.assertEqual(check_sentence_ending("Snails can sleep for 3 years."), True)
+        self.assertEqual(check_sentence_ending(
+            "Snails can sleep for 3 years."), True)
 
     @pytest.mark.task(taskno=2)
     def test_sentence_ending_without_period(self):

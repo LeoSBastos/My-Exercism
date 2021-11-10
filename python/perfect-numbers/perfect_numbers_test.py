@@ -1,8 +1,10 @@
 import unittest
 
-from perfect_numbers import classify
+from perfect_numbers import (
+    classify,
+)
 
-# Tests adapted from `problem-specifications//canonical-data.json` @ v1.1.0
+# Tests adapted from `problem-specifications//canonical-data.json`
 
 
 class PerfectNumbersTest(unittest.TestCase):
@@ -45,18 +47,20 @@ class DeficientNumbersTest(unittest.TestCase):
 
 
 class InvalidInputsTest(unittest.TestCase):
-    def test_zero_is_rejected_not_a_natural_number(self):
-        with self.assertRaisesWithMessage(ValueError):
+    def test_zero_is_rejected_as_it_is_not_a_positive_integer(self):
+        with self.assertRaises(ValueError) as err:
             classify(0)
+        self.assertEqual(type(err.exception), ValueError)
+        self.assertEqual(
+            err.exception.args[0],
+            "Classification is only possible for positive integers.",
+        )
 
-    def test_negative_integer_is_rejected_not_a_natural_number(self):
-        with self.assertRaisesWithMessage(ValueError):
+    def test_negative_integer_is_rejected_as_it_is_not_a_positive_integer(self):
+        with self.assertRaises(ValueError) as err:
             classify(-1)
-
-    # Utility functions
-    def assertRaisesWithMessage(self, exception):
-        return self.assertRaisesRegex(exception, r".+")
-
-
-if __name__ == "__main__":
-    unittest.main()
+        self.assertEqual(type(err.exception), ValueError)
+        self.assertEqual(
+            err.exception.args[0],
+            "Classification is only possible for positive integers.",
+        )

@@ -1,6 +1,13 @@
 def slices(series, length):
-    if length < 1 or len(series) < 1 or len(series) < length:
-        raise ValueError("Operation invalid.")
+    if len(series) < 1: 
+        raise ValueError("series cannot be empty")
+    if len(series) < length:
+        raise ValueError("slice length cannot be greater than series length")
+    if length < 0:
+        raise ValueError("slice length cannot be negative")
+    if length < 1:
+        raise ValueError("slice length cannot be zero")
+    
     subS= []
     if(length == len(series)):
         subS.append(series)

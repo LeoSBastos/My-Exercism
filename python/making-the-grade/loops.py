@@ -2,7 +2,6 @@
 Grade marking system
 """
 
-
 def round_scores(student_scores):
     """
     :param student_scores: list of student exam scores as float or int.
@@ -17,6 +16,7 @@ def count_failed_students(student_scores):
     :param student_scores: list of integer student scores.
     :return: integer count of student scores at or below 40.
     """
+
     return len([i for i in student_scores if i <= 40])
 
 
@@ -26,6 +26,7 @@ def above_threshold(student_scores, threshold):
     :param threshold :  integer
     :return: list of integer scores that are at or above the "best" threshold.
     """
+
     return [i for i in student_scores if i >= threshold]
 
 
@@ -51,9 +52,10 @@ def student_ranking(student_scores, student_names):
 def perfect_score(student_info):
     """
     :param student_info: list of [<student name>, <score>] lists
-    :return: First [<student name>, 100] found OR "No perfect score."
+    :return: first `[<student name>, 100]` or `[]` if no student score of 100 is found.
     """
     for student in student_info:
         if student[1] == 100:
             return student
-    return "No perfect score."
+    return []
+    

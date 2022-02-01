@@ -1,5 +1,5 @@
-# My Excercism
-### Resolvendo exercícios do [excercism.io](https://exercism.io/)
+# My Exercism
+### Resolvendo exercícios do [exercism.io](https://exercism.io/)
 ---
 ### [Meu Perfil](https://exercism.io/profiles/LeoSBastos)
 

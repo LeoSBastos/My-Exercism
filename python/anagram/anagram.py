@@ -1,4 +1,11 @@
+"""
+Anagrams
+"""
+
 def find_anagrams(word, candidates):
+    """
+    Anagrams function
+    """
     wordList = list(word.lower())
     wordList.sort()
     anagrams = []
@@ -7,11 +14,6 @@ def find_anagrams(word, candidates):
             continue
         candidateList = list(candidate.lower())
         candidateList.sort()
-        matches = True
-        for w, c in zip(wordList, candidateList):
-            if not w == c:
-                matches = False
-                continue
-        if matches:
+        if wordList == candidateList:
             anagrams.append(candidate)
     return anagrams

@@ -16,12 +16,7 @@ pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'
         .filter(|&anagram| {
             let mut anagram_chars: Vec<String> = anagram.chars().map(to_lowercase_s).collect();
             let same_word = wc == anagram_chars;
-            println!(
-                "wc: {:?} - anagram_chars: {:?} - same_word: {:?}",
-                wc, anagram_chars, same_word
-            );
             anagram_chars.sort_unstable();
-            println!("wc: {:?} - anagram_chars: {:?}", wc, anagram_chars);
             swc == anagram_chars && !same_word
         })
         .map(|&anagram| anagram);
